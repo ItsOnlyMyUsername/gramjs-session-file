@@ -1,0 +1,33 @@
+{
+  "name": "gramjs-session-file",
+  "version": "0.0.1",
+  "description": "Convert telethon .session file to StringSession for gram.js",
+  "main": "src/index.js",
+  "bin": "src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ItsOnlyMyUsername/gramjs-session-file.git"
+  },
+  "keywords": [
+    "gram.js",
+    "gramjs",
+    "telegram",
+    "string-session",
+    "telethon-session"
+  ],
+  "author": "ItsOnlyMyUsername",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ItsOnlyMyUsername/gramjs-session-file/issues"
+  },
+  "homepage": "https://github.com/ItsOnlyMyUsername/gramjs-session-file#readme",
+  "dependencies": {
+    "prompts": "^2.4.2",
+    "sqlite": "^5.0.1",
+    "sqlite3": "^5.1.6",
+    "telegram": "^2.18.26"
+  }
+}
