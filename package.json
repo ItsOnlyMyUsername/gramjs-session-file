@@ -1,9 +1,9 @@
 {
   "name": "gramjs-session-file",
-  "version": "0.0.1",
+  "version": "0.1.3",
   "description": "Convert telethon .session file to StringSession for gram.js",
-  "main": "src/index.js",
-  "bin": "src/index.js",
+  "main": "./src/index.js",
+  "bin": "./src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

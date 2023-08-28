@@ -2,13 +2,11 @@
 
 const prompts = require('prompts')
 const fs = require('fs')
+const path = require('path')
 const sqlite3 = require('sqlite3')
 const { open } = require('sqlite')
 const { StringSession } = require("telegram/sessions")
 const { AuthKey } = require("telegram/crypto/AuthKey")
-const path = require('path')
-
-const ask = async (message, type = 'text') => (await prompts({ type, name: 'v', message })).v
 
 const convert = async (files, outputPath) => {
     const dbs = await Promise.all(
@@ -49,13 +47,21 @@ const convert = async (files, outputPath) => {
 }
 
 (async () => {
-    const inputPath = await ask('Please enter the path to the telethon session file or to the folder with session files')
+    const questions = [
+        {
+            type: 'text',
+            name: 'inputPath',
+            message: 'Please enter the path to the telethon session file or to the folder with session files',
+            validate: input => fs.existsSync(input) || 'Not a valid path'
+        },
+        {
+            type: 'text',
+            name: 'outputPath',
+            message: 'Please enter the path where result will be saved'
+        }
+    ];
 
-    if (!fs.existsSync(inputPath)) {
-        throw new Error('Not a valid path')
-    }
-
-    const outputPath = await ask('Please enter the path where result will be saved')
+    const { inputPath, outputPath } = await prompts(questions)
 
     const lstat = fs.lstatSync(inputPath)
 
