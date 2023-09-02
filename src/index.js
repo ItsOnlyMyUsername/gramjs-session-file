@@ -72,7 +72,7 @@ const convert = async (files, outputPath) => {
                 const fullPath = path.join(inputPath, file)
 
                 if (fs.lstatSync(fullPath).isFile() && file.endsWith('.session')) {
-                    return file
+                    return fullPath
                 }
             })
             .filter(Boolean)
